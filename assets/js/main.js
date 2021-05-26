@@ -12,3 +12,26 @@ searchInputElement.addEventListener('focusout', e => {
     searchFocusIconElement.style.display = 'none'
 
 })
+// Chat
+const chatModalElement = document.querySelector('.Chat-section')//modal chat
+const chatClickBtnElement = document.querySelectorAll('.chat-item')[0]
+
+chatClickBtnElement.addEventListener('click', e => {
+    chatModalElement.style.display = 'block'
+})
+document.addEventListener('keydown', function(event){
+	if(event.key === "Escape"){
+		chatModalElement.style.display = 'none'
+	}
+});
+// Menu
+const settingsMenuModalElement = document.querySelector('.Menu')
+const settingsMenuBtnElement = document.querySelector('.mini-menu-btn')
+
+settingsMenuBtnElement.addEventListener('click', e => {
+    if(settingsMenuModalElement.style.display == 'none'){
+        settingsMenuModalElement.style.display = 'block'
+    }else{
+        settingsMenuModalElement.style.display = 'none'
+    }
+})
