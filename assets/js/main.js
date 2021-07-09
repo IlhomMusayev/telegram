@@ -14,11 +14,7 @@ searchInputElement.addEventListener('focusout', e => {
 })
 // Chat
 
-document.addEventListener('keydown', function (event) {
-    if (event.key === "Escape") {
-        chatModalElement.style.display = 'none'
-    }
-});
+
 // Menu
 const settingsMenuModalElement = document.querySelector('.Menu')
 const settingsMenuBtnElement = document.querySelector('.mini-menu-btn')
@@ -32,14 +28,13 @@ settingsMenuBtnElement.addEventListener('click', e => {
 })
 
 // Send message
-const sendMessageBtnElement = document.querySelector('.send-btn')
-const messageInputElement = document.querySelector('.message')
 
 
-sendMessageBtnElement.addEventListener('click', (e) => {
-    e.preventDefault()
-    console.log(messageInputElement.value);
-    messageInputElement.value = ''
-})
+
+// sendMessageBtnElement.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     console.log(messageInputElement.value);
+//     messageInputElement.value = ''
+// })
 
 

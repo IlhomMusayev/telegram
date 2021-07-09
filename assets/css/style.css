@@ -470,7 +470,7 @@ body {
 }
 
 .Chat-section{
-    display: none;
+    /* display: none; */
 }
 /* menu settings */
 .active{
