@@ -13,25 +13,33 @@ searchInputElement.addEventListener('focusout', e => {
 
 })
 // Chat
-const chatModalElement = document.querySelector('.Chat-section')//modal chat
-const chatClickBtnElement = document.querySelectorAll('.chat-item')[0]
 
-chatClickBtnElement.addEventListener('click', e => {
-    chatModalElement.style.display = 'block'
-})
-document.addEventListener('keydown', function(event){
-	if(event.key === "Escape"){
-		chatModalElement.style.display = 'none'
-	}
+document.addEventListener('keydown', function (event) {
+    if (event.key === "Escape") {
+        chatModalElement.style.display = 'none'
+    }
 });
 // Menu
 const settingsMenuModalElement = document.querySelector('.Menu')
 const settingsMenuBtnElement = document.querySelector('.mini-menu-btn')
 
 settingsMenuBtnElement.addEventListener('click', e => {
-    if(settingsMenuModalElement.style.display == 'none'){
+    if (settingsMenuModalElement.style.display == 'none') {
         settingsMenuModalElement.style.display = 'block'
-    }else{
+    } else {
         settingsMenuModalElement.style.display = 'none'
     }
 })
+
+// Send message
+const sendMessageBtnElement = document.querySelector('.send-btn')
+const messageInputElement = document.querySelector('.message')
+
+
+sendMessageBtnElement.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log(messageInputElement.value);
+    messageInputElement.value = ''
+})
+
+

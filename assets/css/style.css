@@ -586,34 +586,7 @@ body {
       justify-content: space-between;
       align-items: center;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
   @media(max-width: 500px){
     .LeftColumn{
         width: 100%;
