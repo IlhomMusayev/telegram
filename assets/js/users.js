@@ -259,17 +259,16 @@ chatElement.appendChild(scrollMessageContainerElement)
 
 const chatClickBtnElement = document.querySelectorAll('.chat-item')
 charSectionElement.style.display = 'none'
-
 const containerMessageElement = document.createElement('div')
 scrollMessageContainerElement.appendChild(containerMessageElement)
 containerMessageElement.classList.add('container-message')
 // containerMessageElement.setAttribute('key', user.id)
-
 chatClickBtnElement.forEach(chatItem => {
     chatItem.addEventListener('onfocus', e => {
         chatItem.classList.toggle('fucus-item')
     })
 })
+
 
 chatClickBtnElement.forEach(chatItem => {
     chatItem.addEventListener('click', e => {
@@ -403,3 +402,16 @@ chatClickBtnElement.forEach(chatItem => {
 
     })
 });
+function search_animal() {
+let telegramSearchInput = document.querySelector('.search-input').value
+telegramSearchInput = telegramSearchInput.toLowerCase()
+
+for (let i = 0; i < chatClickBtnElement.length; i++) {
+    if (!chatClickBtnElement[i].textContent.toLowerCase().includes(telegramSearchInput)) {
+        chatClickBtnElement[i].style.display = 'none'
+    }else{
+        chatClickBtnElement[i].style.display = 'flex'
+    }
+}
+}
+   

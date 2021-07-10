@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="SearchInput">
-                            <input id="telegram-search-input" type="text" placeholder="Search" class="search-input">
+                            <input id="telegram-search-input" type="text" placeholder="Search" class="search-input" onkeyup="search_animal()">
                             <span class="icon-search">
                                 <svg class="search-icon-focus" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" width="50px"
@@ -87,6 +87,32 @@
                 </div>
             </div>
         </div>
+
+        <div class="user__info__modal">
+            <div class="user__info__top">
+                <h2>User info</h2>
+                <button class="close__modal__btn">
+                    <img src="assets/img/icons8-multiply-48.png" alt="">
+                </button>
+            </div>
+            <div class="user__info__header">
+                <div class="user__img">
+                    <img src="assets/img/ilhomjon_use.jpg" alt="profil">
+                </div>
+                <div class="user__name">
+                    <h2 class="name">Ilhomjon Musayev</h2>
+                    <span class="status">last see recently</span>
+                </div>
+            </div>
+
+            <div class="user__info__body">
+                
+            </div>
+
+        </div>
+
+
+
         <script src="https://kit.fontawesome.com/6277ef4f6a.js" crossorigin="anonymous"></script>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/users.js"></script>
