@@ -1,4 +1,70 @@
-var retrievedObject = localStorage.getItem('users');
+if(!localStorage.getItem('users')){
+    localStorage.setItem('users', [{
+        "id": 1,
+        "name": "Muhammad Yunus",
+        "profil": "assets/img/muhammadyunus_user.jpg",
+        "phone": "+998 99 987 65 43",
+        "messages": [
+            {
+                "author": "me",
+                "date": "09:21",
+                "message": "Assalomu Alaykum yaxshimisiz"
+            }
+    
+        ]   
+    }, {
+        "id": 2,
+        "name": "Ilhomjon Musayev",
+        "profil": "assets/img/ilhomjon_use.jpg",
+        "phone": "+998 99 123 45 67",
+        "messages": [
+            {
+                "author": "me",
+                "date": "12:42",
+                "message": "Assalomu Alaykum yaxshimisiz"
+            }
+    
+        ]
+    }, {
+        "id": 3,
+        "name": "Husan aka",
+        "profil": "assets/img/husan.jpg",
+        "phone": "+998 94 591 40 90",
+        "messages": [
+            {
+                "author": "me",
+                "date": "01:22",
+                "message": "Assalomu Alaykum yaxshimisiz"
+            }
+    
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Mahmudxon Birad",
+        "profil": "assets/img/mahmudxon.jpg",
+        "phone": "+998 94 000 00 12",
+        "messages": [ {
+            "author": "me",
+            "date": "21:21",
+            "message": "Assalomu Alaykum yaxshimisiz"
+        }]
+    },
+    {
+        "id": 5,
+        "name": "Hasan aka",
+        "profil": "assets/img/hasan.jpg",
+        "phone": "+998 90 005 11 99",
+        "messages": [ {
+            "author": "me",
+            "date": "12:31",
+            "message": "Qachon kelasan"
+        }]
+    }
+    ])
+}
+
+const retrievedObject = localStorage.getItem('users');
 users = JSON.parse(retrievedObject)
 
 users.forEach(user => {
