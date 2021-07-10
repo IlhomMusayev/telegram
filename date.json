@@ -3,6 +3,8 @@
     "name": "Muhammad Yunus",
     "profil": "assets/img/muhammadyunus_user.jpg",
     "phone": "+998 99 987 65 43",
+    "username": "@muhammadyunus_uz",
+    "bio": "19 y.o. Fullstack developer",
     "messages": [
         {
             "author": "me",
@@ -16,6 +18,8 @@
     "name": "Ilhomjon Musayev",
     "profil": "assets/img/ilhomjon_use.jpg",
     "phone": "+998 99 123 45 67",
+    "username": "@ilhomjon_musayev",
+    "bio": "20 y.o. Frontend developer in Uzbekistan",
     "messages": [
         {
             "author": "me",
@@ -29,6 +33,8 @@
     "name": "Husan aka",
     "profil": "assets/img/husan.jpg",
     "phone": "+998 94 591 40 90",
+    "username": "@husanMusa",
+    "bio": "Men endi dunyodagi hamma narsani biladigan darajada yosh emasman...",
     "messages": [
         {
             "author": "me",
@@ -43,6 +49,9 @@
     "name": "Mahmudxon Birad",
     "profil": "assets/img/mahmudxon.jpg",
     "phone": "+998 94 000 00 12",
+    "username": "@Mahmudxon_Umarxonov",
+    "bio": "Android Developer",
+    
     "messages": [ {
         "author": "me",
         "date": "21:21",
@@ -53,7 +62,9 @@
     "id": 5,
     "name": "Hasan aka",
     "profil": "assets/img/hasan.jpg",
-    "phone": "+998 90 005 11 99",
+    "phone": "+998 90 031 11 99",
+    "username": "@ikhasanmusaev",
+    "bio": "22 y.o. Software Engineer from Kungrad, Karakalpakstan",
     "messages": [ {
         "author": "me",
         "date": "12:31",

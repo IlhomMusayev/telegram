@@ -1,72 +1,83 @@
 if(!localStorage.getItem('users') && !localStorage.getItem('mode')){
     localStorage.setItem('users', JSON.stringify([{
-        "id": 1,
-        "name": "Muhammad Yunus",
-        "profil": "assets/img/muhammadyunus_user.jpg",
-        "phone": "+998 99 987 65 43",
-        "messages": [
-            {
-                "author": "me",
-                "date": "09:21",
-                "message": "Assalomu Alaykum yaxshimisiz"
-            }
-    
-        ]   
-    }, {
-        "id": 2,
-        "name": "Ilhomjon Musayev",
-        "profil": "assets/img/ilhomjon_use.jpg",
-        "phone": "+998 99 123 45 67",
-        "messages": [
-            {
-                "author": "me",
-                "date": "12:42",
-                "message": "Assalomu Alaykum yaxshimisiz"
-            }
-    
-        ]
-    }, {
-        "id": 3,
-        "name": "Husan aka",
-        "profil": "assets/img/husan.jpg",
-        "phone": "+998 94 591 40 90",
-        "messages": [
-            {
-                "author": "me",
-                "date": "01:22",
-                "message": "Assalomu Alaykum yaxshimisiz"
-            }
-    
-        ]
-    },
-    {
-        "id": 4,
-        "name": "Mahmudxon Birad",
-        "profil": "assets/img/mahmudxon.jpg",
-        "phone": "+998 94 000 00 12",
-        "messages": [ {
+    "id": 1,
+    "name": "Muhammad Yunus",
+    "profil": "assets/img/muhammadyunus_user.jpg",
+    "phone": "+998 99 987 65 43",
+    "username": "@muhammadyunus_uz",
+    "bio": "19 y.o. Fullstack developer",
+    "messages": [
+        {
             "author": "me",
-            "date": "21:21",
+            "date": "09:21",
             "message": "Assalomu Alaykum yaxshimisiz"
-        }]
-    },
-    {
-        "id": 5,
-        "name": "Hasan aka",
-        "profil": "assets/img/hasan.jpg",
-        "phone": "+998 90 005 11 99",
-        "messages": [ {
-            "author": "me",
-            "date": "12:31",
-            "message": "Qachon kelasan"
-        }]
-    }
-    ]))
+        }
 
-    localStorage.setItem('mode', JSON.stringify([{mode: 'light'}]))
+    ]   
+}, {
+    "id": 2,
+    "name": "Ilhomjon Musayev",
+    "profil": "assets/img/ilhomjon_use.jpg",
+    "phone": "+998 99 123 45 67",
+    "username": "@ilhomjon_musayev",
+    "bio": "20 y.o. Frontend developer in Uzbekistan",
+    "messages": [
+        {
+            "author": "me",
+            "date": "12:42",
+            "message": "Assalomu Alaykum yaxshimisiz"
+        }
+
+    ]
+}, {
+    "id": 3,
+    "name": "Husan aka",
+    "profil": "assets/img/husan.jpg",
+    "phone": "+998 94 591 40 90",
+    "username": "@husanMusa",
+    "bio": "Men endi dunyodagi hamma narsani biladigan darajada yosh emasman...",
+    "messages": [
+        {
+            "author": "me",
+            "date": "01:22",
+            "message": "Assalomu Alaykum yaxshimisiz"
+        }
+
+    ]
+},
+{
+    "id": 4,
+    "name": "Mahmudxon Birad",
+    "profil": "assets/img/mahmudxon.jpg",
+    "phone": "+998 94 000 00 12",
+    "username": "@Mahmudxon_Umarxonov",
+    "bio": "Android Developer",
+    
+    "messages": [ {
+        "author": "me",
+        "date": "21:21",
+        "message": "Assalomu Alaykum yaxshimisiz"
+    }]
+},
+{
+    "id": 5,
+    "name": "Hasan aka",
+    "profil": "assets/img/hasan.jpg",
+    "phone": "+998 90 031 11 99",
+    "username": "@ikhasanmusaev",
+    "bio": "22 y.o. Software Engineer from Kungrad, Karakalpakstan",
+    "messages": [ {
+        "author": "me",
+        "date": "12:31",
+        "message": "Qachon kelasan"
+    }]
+}
+]))
+
+    localStorage.setItem('mode', JSON.stringify([{mode: 'dark'}]))
 }
 else{
-    console.log('yo\'q');
+    
 }
 
 const retrievedObject = localStorage.getItem('users');
@@ -141,7 +152,7 @@ users.forEach(user => {
     lastMessageMetaElement.appendChild(timeElement)
     userNameDivElement.appendChild(subTitleElement)
     subTitleElement.appendChild(submessageElement)
-    console.log(UsersItemElement);
+    // console.log(UsersItemElement);
 
 });
 
@@ -164,6 +175,7 @@ cancelBtnIcon.src = 'assets/img/cancel.png'
 
 const userImgDivElement = document.createElement('div')
 userImgDivElement.classList.add('user-img')
+userImgDivElement.classList.add('user-img-header')
 
 const userImgElement = document.createElement('img')
 
@@ -270,6 +282,7 @@ chatClickBtnElement.forEach(chatItem => {
 })
 
 
+
 chatClickBtnElement.forEach(chatItem => {
     chatItem.addEventListener('click', e => {
         chatItem.classList.add('focus-item')
@@ -281,6 +294,30 @@ chatClickBtnElement.forEach(chatItem => {
         messageFooterElement.textContent = ''
         let user = users.filter(user => key == user.id)[0]
         let messages = user.messages
+
+        const userProfilImgBtnElement = document.querySelector('.user-img-header') 
+        const userInfoModalElement = document.querySelector('.user__info__modal')
+        const closeUserInfoModalBtn = document.querySelector('.close__modal__btn')
+
+        const userProfilImgElement = document.querySelector('.user__profil__img')
+        const userInfoNameElement = document.querySelector('.user__info__name')
+        const userInfoPhoneNumberElement = document.querySelector('.phone_number')
+        const userInfoUserNameElement = document.querySelector('.username')
+        const userInfoBioElement = document.querySelector('.bio')
+
+        // console.log(userProfilImgBtnElement);
+        userProfilImgBtnElement.addEventListener('click', (e) => {
+            userInfoModalElement.style.display = 'block'
+            userProfilImgElement.src = user.profil
+            userInfoNameElement.textContent = user.name
+            userInfoPhoneNumberElement.textContent = user.phone
+            userInfoUserNameElement.textContent = user.username
+            userInfoBioElement.textContent = user.bio
+        })
+        closeUserInfoModalBtn.addEventListener('click', (e) => {
+            userInfoModalElement.style.display = 'none'
+        })
+
 
         const messageInputWrapperElement = document.createElement('div')
         messageInputWrapperElement.classList.add('message-input-wrapper')
@@ -365,12 +402,12 @@ chatClickBtnElement.forEach(chatItem => {
             }
         }
         addMessage(messages)
-        console.log(messageInputElement.value);
+        // console.log(messageInputElement.value);
         sendMessageBtnElement.addEventListener('click', (e) => {
             e.preventDefault()
             containerMessageElement.textContent = ''
             let today = new Date();
-            console.log(messageInputElement.value);
+            // console.log(messageInputElement.value);
             if (messageInputElement.value.length > 0) {
                 messages.push({
                     author: "you",
@@ -414,4 +451,3 @@ for (let i = 0; i < chatClickBtnElement.length; i++) {
     }
 }
 }
-   

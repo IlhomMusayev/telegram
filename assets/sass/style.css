@@ -1,1 +1,141 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+:root {
+  --background-color: #fff;
+  --text: #000;
+  --LeftCalumnColor: #fff;
+  --LeftCalumnColorHover: #f5f5f5;
+  --grayColor: #0f0f0f
+
+}
+
+.user__info__modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 30%;
+  background-color: var(--LeftCalumnColor);
+  padding: 20px;
+  -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.user__info__modal .user__info__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+}
+
+.user__info__modal .user__info__top h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.user__info__modal .user__info__top .close__modal__btn {
+  background: none;
+  border: none;
+  opacity: 0.5;
+}
+
+.user__info__modal .user__info__top .close__modal__btn:hover {
+  opacity: 1;
+}
+
+.user__info__modal .user__info__top .close__modal__btn img {
+  width: 30px;
+}
+
+.user__info__modal .user__info__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user__info__modal .user__info__header .user__img {
+  width: 20%;
+}
+
+.user__info__modal .user__info__header .user__img img {
+  width: 70px;
+  height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.user__info__modal .user__info__header .user__name {
+  width: 75%;
+}
+
+.user__info__modal .user__info__header .user__name .name {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.user__info__modal .user__info__header .user__name .status {
+  font-size: 15px;
+  color: var(--grayColor);
+}
+
+.user__info__modal hr {
+  border: 1px solid #2c2c2c;
+  margin: 20px 0;
+}
+
+.user__info__modal .user__info__body .info__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30px 0;
+}
+
+.user__info__modal .user__info__body .info__body .icon {
+  width: 15%;
+}
+
+.user__info__modal .user__info__body .info__body .icon img {
+  width: 35px;
+}
+
+.user__info__modal .user__info__body .info__body .text {
+  width: 85%;
+}
+
+.user__info__modal .user__info__body .info__body .text h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.user__info__modal .user__info__body .info__body .text span {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media (max-width: 700px) {
+  .user__info__modal {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
