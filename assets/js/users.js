@@ -1,4 +1,4 @@
-if(!localStorage.getItem('users')){
+if(!localStorage.getItem('users') && !localStorage.getItem('mode')){
     localStorage.setItem('users', JSON.stringify([{
         "id": 1,
         "name": "Muhammad Yunus",
@@ -62,6 +62,8 @@ if(!localStorage.getItem('users')){
         }]
     }
     ]))
+
+    localStorage.setItem('mode', JSON.stringify([{mode: 'light'}]))
 }
 else{
     console.log('yo\'q');
