@@ -143,36 +143,6 @@ const messageFooterElement = document.createElement('div')
 messageFooterElement.classList.add('message-footer')
 messageFooterElement.classList.add('container-message')
 
-const messageInputWrapperElement = document.createElement('div')
-messageInputWrapperElement.classList.add('message-input-wrapper')
-
-const sendMessageFormElement = document.createElement('form')
-sendMessageFormElement.classList.add('send-message-form')
-
-const smilesIconImgElement = document.createElement('img')
-smilesIconImgElement.classList.add('smile-icon')
-smilesIconImgElement.src = 'https://img.icons8.com/windows/32/828282/happy--v1.png'
-
-const messageInputElement = document.createElement('input')
-messageInputElement.classList.add('message')
-messageInputElement.setAttribute('type', 'text')
-messageInputElement.setAttribute('name', 'message')
-messageInputElement.setAttribute('id', 'message')
-messageInputElement.setAttribute('placeholder', 'Message...')
-messageInputElement.setAttribute('autocomplete', 'off')
-
-const linkIconImgElement = document.createElement('img')
-linkIconImgElement.classList.add('link-file')
-linkIconImgElement.src = 'https://img.icons8.com/metro/30/828282/link.png'
-
-
-const sendMessageBtnElement = document.createElement('button')
-sendMessageBtnElement.classList.add('send-btn')
-sendMessageBtnElement.setAttribute('type', 'submit')
-
-const sendMessageIconElement = document.createElement('img')
-sendMessageIconElement.classList.add('send-message-icon')
-sendMessageIconElement.src = 'https://img.icons8.com/ios-glyphs/30/8378db/filled-sent.png'
 
 
 
@@ -202,72 +172,129 @@ messageChatElement.appendChild(messageFooterElement)
 chatElement.appendChild(scrollMessageContainerElement)
 
 
-messageFooterElement.appendChild(messageInputWrapperElement)
-messageInputWrapperElement.appendChild(sendMessageFormElement)
-sendMessageFormElement.appendChild(smilesIconImgElement)
-sendMessageFormElement.appendChild(messageInputElement)
-sendMessageFormElement.appendChild(linkIconImgElement)
-sendMessageFormElement.appendChild(sendMessageBtnElement)
-sendMessageBtnElement.appendChild(sendMessageIconElement)
+
 
 
 const chatClickBtnElement = document.querySelectorAll('.chat-item')
 charSectionElement.style.display = 'none'
 
+const containerMessageElement = document.createElement('div')
+scrollMessageContainerElement.appendChild(containerMessageElement)
+containerMessageElement.classList.add('container-message')
+// containerMessageElement.setAttribute('key', user.id)
+
 chatClickBtnElement.forEach(chatItem => {
     chatItem.addEventListener('click', e => {
-        let key = chatItem.getAttribute('key')
-        let user = users.filter(user => key == user.id)[0]
-        for (let i = 1; i <= users.length; i++) {
-            if (i != key) {
 
+        let key = chatItem.getAttribute('key')
+
+        let users = JSON.parse(localStorage.getItem('users')) || []
+        containerMessageElement.textContent = ''
+        messageFooterElement.textContent = ''
+        let user = users.filter(user => key == user.id)[0]
+        let messages = user.messages
+
+        const messageInputWrapperElement = document.createElement('div')
+        messageInputWrapperElement.classList.add('message-input-wrapper')
+
+        const sendMessageFormElement = document.createElement('form')
+        sendMessageFormElement.classList.add('send-message-form')
+
+        const smilesIconImgElement = document.createElement('img')
+        smilesIconImgElement.classList.add('smile-icon')
+        smilesIconImgElement.src = 'https://img.icons8.com/windows/32/828282/happy--v1.png'
+
+        const messageInputElement = document.createElement('input')
+        messageInputElement.classList.add('message')
+        messageInputElement.setAttribute('type', 'text')
+        messageInputElement.setAttribute('name', 'message')
+        messageInputElement.setAttribute('id', 'message')
+        messageInputElement.setAttribute('placeholder', 'Message...')
+        messageInputElement.setAttribute('autocomplete', 'off')
+
+        const linkIconImgElement = document.createElement('img')
+        linkIconImgElement.classList.add('link-file')
+        linkIconImgElement.src = 'https://img.icons8.com/metro/30/828282/link.png'
+
+
+        const sendMessageBtnElement = document.createElement('button')
+        sendMessageBtnElement.classList.add('send-btn')
+        sendMessageBtnElement.setAttribute('type', 'submit')
+
+        const sendMessageIconElement = document.createElement('img')
+        sendMessageIconElement.classList.add('send-message-icon')
+        sendMessageIconElement.src = 'https://img.icons8.com/ios-glyphs/30/8378db/filled-sent.png'
+
+
+        messageFooterElement.appendChild(messageInputWrapperElement)
+        messageInputWrapperElement.appendChild(sendMessageFormElement)
+        sendMessageFormElement.appendChild(smilesIconImgElement)
+        sendMessageFormElement.appendChild(messageInputElement)
+        sendMessageFormElement.appendChild(linkIconImgElement)
+        sendMessageFormElement.appendChild(sendMessageBtnElement)
+        sendMessageBtnElement.appendChild(sendMessageIconElement)
+
+
+        function addMessage(messages) {
+            localStorage.setItem('users', JSON.stringify(users))
+
+            for (let i = 0; i < user.messages.length; i++) {
+
+                if (messages[i].author == 'me') {
+
+                    const messageMeElement = document.createElement('div')
+                    messageMeElement.classList.add('message-blue')
+
+                    const messageMeContentElement = document.createElement('p')
+                    messageMeContentElement.classList.add('message-content')
+                    messageMeContentElement.textContent = user.messages[i].message
+
+                    const messageMeTimestampTightElement = document.createElement('div')
+                    messageMeTimestampTightElement.classList.add('message-timestamp-left')
+                    messageMeTimestampTightElement.textContent = user.messages.date
+
+                    containerMessageElement.appendChild(messageMeElement)
+                    messageMeElement.appendChild(messageMeContentElement)
+                    messageMeElement.appendChild(messageMeTimestampTightElement)
+
+                } else if (messages[i].author == 'you') {
+                    const messageYouElement = document.createElement('div')
+                    messageYouElement.classList.add('message-orange')
+
+                    const messageContentElement = document.createElement('p')
+                    messageContentElement.classList.add('message-content')
+                    messageContentElement.textContent = user.messages[i].message
+
+                    const messageTimestampTightElement = document.createElement('div')
+                    messageTimestampTightElement.classList.add('message-timestamp-right')
+                    messageTimestampTightElement.textContent = user.messages[i].date
+
+                    containerMessageElement.appendChild(messageYouElement)
+                    messageYouElement.appendChild(messageContentElement)
+                    messageYouElement.appendChild(messageTimestampTightElement)
+
+                }
             }
         }
-
+        addMessage(messages)
+        console.log(messageInputElement.value);
+        sendMessageBtnElement.addEventListener('click', (e) => {
+            e.preventDefault()
+            containerMessageElement.textContent = ''
+            let today = new Date();
+            console.log(messageInputElement.value);
+            if(messageInputElement.value.length > 0){
+                messages.push({
+                    author: "you",
+                    date: today.getHours() + "" + today.getMinutes(),
+                    message: messageInputElement.value
+                })
+            }
+                addMessage(messages)
+                messageInputElement.value = ''
+            })
         userImgElement.src = user.profil
         userNameElement.textContent = user.name
-        console.log(user.id);
-        if (key == 1) {
-            const containerMessageElement = document.createElement('div')
-            containerMessageElement.classList.add('container-message')
-
-            const messageYouElement = document.createElement('div')
-            messageYouElement.classList.add('message-orange')
-
-            const messageContentElement = document.createElement('p')
-            messageContentElement.classList.add('message-content')
-            messageContentElement.textContent = 'Assalomu alaykum yaxshimisiz'
-
-            const messageTimestampTightElement = document.createElement('div')
-            messageTimestampTightElement.classList.add('message-timestamp-right')
-            messageTimestampTightElement.textContent = '14:32'
-
-
-            const messageMeElement = document.createElement('div')
-            messageMeElement.classList.add('message-blue')
-
-            const messageMeContentElement = document.createElement('p')
-            messageMeContentElement.classList.add('message-content')
-            messageMeContentElement.textContent = 'Assalomu alaykum yaxshimisiz'
-
-            const messageMeTimestampTightElement = document.createElement('div')
-            messageMeTimestampTightElement.classList.add('message-timestamp-left')
-            messageMeTimestampTightElement.textContent = '14:32'
-
-            scrollMessageContainerElement.appendChild(containerMessageElement)
-            scrollMessageContainerElement.appendChild(containerMessageElement)
-
-            containerMessageElement.appendChild(messageYouElement)
-            containerMessageElement.appendChild(messageMeElement)
-
-            messageYouElement.appendChild(messageContentElement)
-            messageYouElement.appendChild(messageTimestampTightElement)
-
-
-            messageMeElement.appendChild(messageMeContentElement)
-            messageMeElement.appendChild(messageMeTimestampTightElement)
-        }
-
 
 
 

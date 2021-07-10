@@ -1,0 +1,50 @@
+[{
+    "id": 1,
+    "name": "Muhammad Yunus",
+    "profil": "assets/img/muhammadyunus_user.jpg",
+    "messages": [
+        {
+            "author": "me",
+            "date": "",
+            "message": "Assalomu Alaykum"
+        }, {
+            "author": "you",
+            "date": "",
+            "message": "Assalomu Alaykum yaxshimisiz"
+        }, {
+            "author": "you",
+            "date": "",
+            "message": "Assalomu Alaykum yaxshimisiz"
+        }
+    ]   
+}, {
+    "id": 2,
+    "name": "Ilhomjon Musayev",
+    "profil": "assets/img/ilhomjon_use.jpg",
+    "messages": [
+        {
+            "author": "me",
+            "date": "",
+            "message": "Assalomu Alaykum"
+        }, {
+            "author": "you",
+            "date": "",
+            "message": "Assalomu Alaykum yaxshimisiz"
+        }
+    ]
+}, {
+    "id": 3,
+    "name": "Husan aka",
+    "profil": "assets/img/husan.jpg",
+    "messages": [{
+        "messageBoolin": false
+    }, {
+        "author": "me",
+        "date": "",
+        "message": "Assalomu Alaykum Aka yaxshimisiz"
+    }, {
+        "author": "you",
+        "date": "",
+        "message": "Va alaykum assalom Assalomu Alaykum yaxshimisiz"
+    }]
+}]
