@@ -1,5 +1,5 @@
 if(!localStorage.getItem('users')){
-    localStorage.setItem('users', [{
+    localStorage.setItem('users', JSON.stringify([{
         "id": 1,
         "name": "Muhammad Yunus",
         "profil": "assets/img/muhammadyunus_user.jpg",
@@ -61,7 +61,10 @@ if(!localStorage.getItem('users')){
             "message": "Qachon kelasan"
         }]
     }
-    ])
+    ]))
+}
+else{
+    console.log('yo\'q');
 }
 
 const retrievedObject = localStorage.getItem('users');
