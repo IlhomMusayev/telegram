@@ -1,7 +1,7 @@
 const searchInputElement = document.querySelector('.search-input')
 const searchDefaultIconElement = document.querySelector('.search-icon-default')
 const searchFocusIconElement = document.querySelector('.search-icon-focus')
-
+const bodyElement = document.querySelector('body')
 searchInputElement.addEventListener('focus', e => {
     searchDefaultIconElement.style.display = 'none'
     searchFocusIconElement.style.display = 'block'
@@ -38,3 +38,26 @@ settingsMenuBtnElement.addEventListener('click', e => {
 // })
 
 
+const darkModeCheckboxInputElement = document.querySelector('.dark-checkbox')
+let root = document.documentElement
+darkModeCheckboxInputElement.addEventListener('change', (e) => {
+    bodyElement.classList.toggle('dark-mode')
+    console.log(e);
+    if (darkModeCheckboxInputElement.checked == false) {
+        root.style.setProperty('--background-color', "#fff");
+        root.style.setProperty('--text', "#000");
+        root.style.setProperty('--LeftCalumnColor', "#fff");
+        root.style.setProperty('--LeftCalumnColorHover', "#f5f5f5");
+        root.style.setProperty('--grayColor', "#0f0f0");
+    }else{
+        root.style.setProperty('--background-color', "#0f0f0f");
+        root.style.setProperty('--text', "#f0f0f0");
+        root.style.setProperty('--LeftCalumnColor', "rgb(33,33,33)");
+        root.style.setProperty('--LeftCalumnColorHover', "rgb(44,44,44)");
+        root.style.setProperty('--grayColor', "#c0c0c0");
+    }
+})
+// if(darkModeCheckboxInputElement.checked){
+//     bodyElement.style.backgroundColor = '#fff'
+//     bodyElement.style.color = '#000'
+// }

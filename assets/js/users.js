@@ -9,6 +9,7 @@ users.forEach(user => {
     const UsersItemElement = document.createElement('div')
     UsersItemElement.classList.add('chat-item')
     UsersItemElement.setAttribute("key", user.id)
+    UsersItemElement.setAttribute('name', user.name)
 
 
 
@@ -22,7 +23,7 @@ users.forEach(user => {
 
     const timeElement = document.createElement('span')
     timeElement.classList.add('time')
-    timeElement.textContent = '19:21'
+    timeElement.textContent = user.messages[user.messages.length - 1].date
 
 
     const lastMessageMetaElement = document.createElement('div')
@@ -31,6 +32,7 @@ users.forEach(user => {
 
     const nameElement = document.createElement('h3')
     nameElement.textContent = user.name
+
     const usersInfoElement = document.createElement('div')
     usersInfoElement.classList.add('user-info')
 
@@ -41,8 +43,7 @@ users.forEach(user => {
 
     const submessageElement = document.createElement('p')
     submessageElement.classList.add('last-message')
-    submessageElement.textContent = 'Assalomu alaykum aka yaxshimisiz'
-
+    submessageElement.textContent = user.messages[user.messages.length - 1].message
 
     const userNameDivElement = document.createElement('div')
     userNameDivElement.classList.add('user-name')
@@ -83,6 +84,12 @@ middleHeaderElement.classList.add('MiddleHeader')
 
 const MiddleHeaderUserInfoElement = document.createElement('div')
 MiddleHeaderUserInfoElement.classList.add('MiddleHeader-user-info')
+
+const cancelChatBtnElement = document.createElement('div')
+cancelChatBtnElement.classList.add('cancel-chat-btn')
+
+const cancelBtnIcon = document.createElement('img')
+cancelBtnIcon.src = 'assets/img/cancel.png'
 
 const userImgDivElement = document.createElement('div')
 userImgDivElement.classList.add('user-img')
@@ -153,8 +160,12 @@ middleHeaderElement.appendChild(MiddleHeaderUserInfoElement)
 
 middleHeaderElement.appendChild(headerToolsElement)
 
+MiddleHeaderUserInfoElement.appendChild(cancelChatBtnElement)
 MiddleHeaderUserInfoElement.appendChild(userImgDivElement)
 MiddleHeaderUserInfoElement.appendChild(userNameDivElement)
+
+cancelChatBtnElement.appendChild(cancelBtnIcon)
+
 userImgDivElement.appendChild(userImgElement)
 
 userNameDivElement.appendChild(userInfo1Element)
@@ -184,7 +195,14 @@ containerMessageElement.classList.add('container-message')
 // containerMessageElement.setAttribute('key', user.id)
 
 chatClickBtnElement.forEach(chatItem => {
+    chatItem.addEventListener('onfocus', e => {
+        chatItem.classList.toggle('fucus-item')
+    })
+})
+
+chatClickBtnElement.forEach(chatItem => {
     chatItem.addEventListener('click', e => {
+        chatItem.classList.add('focus-item')
 
         let key = chatItem.getAttribute('key')
 
@@ -283,16 +301,17 @@ chatClickBtnElement.forEach(chatItem => {
             containerMessageElement.textContent = ''
             let today = new Date();
             console.log(messageInputElement.value);
-            if(messageInputElement.value.length > 0){
+            if (messageInputElement.value.length > 0) {
                 messages.push({
                     author: "you",
-                    date: today.getHours() + "" + today.getMinutes(),
+                    date: today.getHours() + ":" + today.getMinutes(),
                     message: messageInputElement.value
                 })
             }
-                addMessage(messages)
-                messageInputElement.value = ''
-            })
+            addMessage(messages)
+            messageInputElement.value = ''
+        })
+
         userImgElement.src = user.profil
         userNameElement.textContent = user.name
 
@@ -301,10 +320,15 @@ chatClickBtnElement.forEach(chatItem => {
 
 
         charSectionElement.style.display = 'block'
+        cancelChatBtn = document.querySelector('.cancel-chat-btn')
         document.addEventListener('keydown', function (event) {
             if (event.key === "Escape") {
                 charSectionElement.style.display = 'none'
             }
         });
+        cancelChatBtn.addEventListener('click', () => {
+            charSectionElement.style.display = 'none'
+        })
+
     })
 });

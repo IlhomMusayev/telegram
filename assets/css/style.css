@@ -1,3 +1,11 @@
+:root {
+    --background-color: #0f0f0f;
+    --text: #f0f0f0;
+    --LeftCalumnColor: rgb(33,33,33);
+    --LeftCalumnColorHover: rgb(44,44,44);
+    --grayColor: #c0c0c0
+
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,14 +28,19 @@ img {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #0F0F0F;
-    color: #f0f0f0;
+    background-color: var(--background-color);
+    backdrop-filter: blur(10px);
+    color: var(--text);
 }
-
+.dark-mode{
+    background-image: url('../img/romashka-belaia-romashki-tsvetok.jpg');
+}
 .container {
     margin: 0 auto;
 }
-
+.fucus-item{
+    background-color: rgb(131,120,219);
+}
 .visually-hidden {
     position: absolute !important;
     height: 1px;
@@ -40,7 +53,7 @@ body {
 /* *****************************************LeftColumn***************************************** */
 .LeftColumn{
     width: 25%;
-    background-color: rgb(33,33,33);
+    background-color: var(--LeftCalumnColor);
 }
 .LeftMainHeader{
     display: flex;
@@ -58,7 +71,7 @@ body {
     padding: 10px;
 }
 .mini-menu-btn:hover{
-    background-color: rgb(44,44,44);
+    background-color: var(--LeftCalumnColorHover);
     border-radius: 50%;
 }
 .SearchInput{
@@ -68,16 +81,16 @@ body {
 .search-input{
     width: 100%;
     padding: 15px 40px;
-    background-color: rgb(44,44,44);
+    background-color: var(--LeftCalumnColorHover);
     border-radius: 50px;
     border: none;
-    border: 2px solid rgb(44,44,44);
-    color: #fff;
+    border: 2px solid var(--LeftCalumnColorHover);
+    color: var(--text);
     font-size: 16px;
 }
 .search-input::placeholder{
     font-size: 16px;
-    color: #f0f0f0;
+    color: var(--text);
 }
 .search-input:focus{
     outline: none;
@@ -98,6 +111,7 @@ body {
 .chat-items{
     height: 90vh;
 }
+
 .scroll-container{
     width: 100%;
     height: 90vh;
@@ -135,8 +149,11 @@ body {
     user-select: none;
 }
 .chat-item:hover{
-    background-color: rgb(44,44,44);
+    background-color: var(--LeftCalumnColorHover);
     border-radius: 20px;
+}
+.chat-item:focus{
+    background-color: rgb(131,120,219);
 }
 .user-img{
     width: 25%;
@@ -174,7 +191,7 @@ body {
 }
 .LastMessageMeta .time{
     font-size: .75rem;
-    color: #686c72;
+    color: var(--grayColor);
     line-height: 1.15rem;
 }
 .last-message{
@@ -186,11 +203,9 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: left;
-    color: #817f7f;
+    color: var(--grayColor);
 }
-.last-message span{
-    color: #c0c0c0;
-}
+
 .icon-type-chat svg{
     width: 15px;
 }
@@ -211,7 +226,7 @@ body {
     justify-content: space-around;
 }
 .MiddleColumn{
-    width: 80%;
+    width: 75%;
 }
 .Chat-section{
     display: block;
@@ -220,7 +235,7 @@ body {
     overflow: hidden;
 }
 .MiddleHeader{
-    background-color: rgb(33,33,33);
+    background-color: var(--LeftCalumnColor);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -251,14 +266,14 @@ body {
     padding: 8px 10px;
 }
 .HeaderActions button:hover{
-    background-color: rgb(44,44,44);
+    background-color: var(--LeftCalumnColorHover);
     border-radius: 50%;
 }
 .HeaderActions button img{
     width: 25px;
 }
 .status-item{
-    color: #c0c0c0;
+    color: var(--grayColor);
 }
 .container-message {
     overflow: hidden;
@@ -269,16 +284,16 @@ body {
 
 .message-blue {
     position: relative;
-    margin-left: 20px;
+    margin-left: 20px;  
     margin-bottom: 20px;
     padding: 10px 10px 20px 10px;
     /* padding-bottom: 20px; */
-    background-color: rgb(44,44,44);
-    max-width: 50%;
+    background-color: var(--LeftCalumnColorHover);
+    max-width: 60%;
     max-height: 10%;
     text-align: left;
     font: 400 .9em 'Open Sans', sans-serif;
-    border: 1px solid rgb(44,44,44);
+    border: 1px solid var(--LeftCalumnColorHover);
     border-radius: 10px;
 }
 
@@ -289,7 +304,7 @@ body {
     padding: 15px;
     /* padding-bottom: 20px; */
     background-color: rgb(131,120,219);
-    max-width: 50%;
+    max-width: 60%;
     max-height: 10%;
     text-align: left;
     font: 400 .9em 'Open Sans', sans-serif;
@@ -324,7 +339,7 @@ body {
     position: absolute;
     width: 0;
     height: 0;
-    border-top: 10px solid rgb(44,44,44);
+    border-top: 10px solid var(--LeftCalumnColorHover);
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     top: 0;
@@ -336,7 +351,7 @@ body {
     position: absolute;
     width: 0;
     height: 0;
-    border-top: 17px solid rgb(44,44,44);
+    border-top: 17px solid var(--LeftCalumnColorHover);
     border-left: 16px solid transparent;
     border-right: 16px solid transparent;
     top: -1px;
@@ -382,10 +397,10 @@ body {
 .message-input-wrapper .message{
     width: 78%;
     padding: 20px 60px;
-    background-color: rgb(44,44,44);
+    background-color: var(--LeftCalumnColorHover);
     border: none;
     border-radius: 20px;
-    color: #f0f0f0;
+    color: var(--text);
     font-size: 16px;
 }
 
@@ -402,7 +417,7 @@ body {
 .scroll-message-container::-webkit-scrollbar
 {
 	width: 6px;
-	background-color: #0F0F0F;
+	background-color: var(--background-color);
 }
 
 .scroll-message-container::-webkit-scrollbar-thumb
@@ -427,7 +442,7 @@ body {
 }
 .send-btn{
     position: relative;
-    background-color: rgb(44,44,44);
+    background-color: var(--LeftCalumnColorHover);
     border-radius: 50%;
     border: none;
     cursor: pointer;
@@ -482,13 +497,13 @@ body {
     top: 11%;
     left: 1%;
     z-index: 2;
-    background-color: rgb(33,33,33);
-    width: 300px;
+    background-color: var(--LeftCalumnColor);
+    width: 20%;
     height: 53%;
     padding: 25px 0;
     font-weight: 500;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.5);
 }
 .menu-item{
     position: relative;
@@ -497,11 +512,11 @@ body {
     align-items: center;
     width: 100%;
     padding: 20px 20px;
-    background-color: rgb(33,33,33);
+    background-color: var(--LeftCalumnColor);
     border: none;
 }
 .menu-item:hover{
-    background-color: rgb(44,44,44);
+    background-color: var(--LeftCalumnColorHover);
 }
 .menu-item h3{
     font-family:sans-serif;
@@ -510,11 +525,11 @@ body {
     left: 25%;
     top: 50%;
     transform: translate(0, -50%);
-    color: #f0f0f0;
+    color: var(--text);
 }
 .menu-item i{
     font-size: 20px;
-    color: #f0f0f0;
+    color: var(--text);
 }
 .switch {
     position: relative;
@@ -586,12 +601,35 @@ body {
       justify-content: space-between;
       align-items: center;
   }
-  
-  @media(max-width: 500px){
+  .cancel-chat-btn{
+      margin-right: 10px;
+      cursor: pointer;
+  }
+  .cancel-chat-btn img{
+    width: 40px;
+  }
+  @media(max-width: 740px){
     .LeftColumn{
         width: 100%;
     }
+    .Menu{
+        width: 90%;
+    }
+    .container-message {
+        width: 100%;
+        
+    }
     .MiddleColumn{
-        display: none;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        background-color: #000;
+        /* display: none; */
+    }
+    .message-blue, .message-orange{
+       max-width: 80%;
+       margin: 10px auto;
     }
   }
